@@ -1,0 +1,29 @@
+default: &default  
+    adapter: postgresql  
+    encoding: unicode  
+    pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+    timeout: 5000
+
+development:  
+    <<: *default  
+    database: apidemopmz_development
+    host: localhost
+    port: 5432
+    username: postgres
+    password: '520pxr1314'
+
+test:  
+    <<: *default  
+    database: apidemopmz_test
+    host: localhost
+    port: 5432
+    username: postgres
+    password: '520pxr1314'
+
+production:  
+    <<: *default  
+    database: apidemopmz_production
+    host: localhost
+    port: 5432
+    username: postgres
+    password: <%= ENV['APIDEMOPMZ_DATABASE_PASSWORD'] %>
